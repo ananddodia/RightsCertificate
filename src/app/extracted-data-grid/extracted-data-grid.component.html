@@ -1,0 +1,12 @@
+<dx-data-grid id="gridContainer" [dataSource]="dataSource" [remoteOperations]="false" [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true" [showBorders]="true" [columns]="columns">
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-filter-row [visible]="showFilterRow" [applyFilter]="currentFilter"></dxo-filter-row>
+    <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
+    <dxo-search-panel [visible]="true" placeholder="Search..."></dxo-search-panel>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 25, 50, 100]"></dxo-pager>
+    <div *dxTemplate="let data of 'URLLink'">
+        <a href="{{data.value}}" target="_blank" title="Opens PDF in new Tab">{{data.value}}</a>
+    </div>
+</dx-data-grid>
