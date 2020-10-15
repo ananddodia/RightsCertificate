@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import 'devextreme/data/odata/store';
+import {Service} from "../service/service";
 
 @Component({
 	selector: 'extracted-data-grid',
@@ -10,7 +11,11 @@ import 'devextreme/data/odata/store';
 export class ExtractedDataGridComponent implements OnInit {
 	columns = [];
 	dataSource: DataSource;
-	constructor() { }
+	constructor(services: Service) {
+		this.dataSource = new DataSource({
+			store: services.getData()
+		});
+	}
 
 	ngOnInit(): void {
 		this.columns = [{
@@ -31,189 +36,6 @@ export class ExtractedDataGridComponent implements OnInit {
 			caption: "URL",
 			cellTemplate: "URLLink"
 		}];
-		this.dataSource = new DataSource({
-            store: [{
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man",
-				dateOfPublish: "12/25/2008",
-				basedOn: "Comic",
-				type: "Type 1",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 2",
-				dateOfPublish: "01/02/2009",
-				basedOn: "Comic",
-				type: "Type 2",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man 3",
-				dateOfPublish: "12/22/2010",
-				basedOn: "Comic",
-				type: "Type 4",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: far from home",
-				dateOfPublish: "11/10/2018",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}, {
-				title: "Spider man: home coming",
-				dateOfPublish: "11/11/2019",
-				basedOn: "Comic",
-				type: "Type 5",
-				url: "https://www.google.com"
-			}]
-        });
 	}
 
 }
