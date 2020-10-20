@@ -1,12 +1,19 @@
 {
   "name": "rights-certificate",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "author": {
+    "name": "Red Team SPE Innovation Lab"
+  },
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm-run-all lint start:app",
+    "start:app": "npm run start:ng-app",
+    "start:ng-app": "node ./node_modules/@angular/cli/bin/ng serve --proxy-config proxy.conf.json",
+    "build": "npm-run-all lint build:app",
+    "build:app": "npm run build:ng",
+    "build:ng": "node ./node_modules/@angular/cli/bin/ng build --prod --verbose=true --progress=true",
+    "prebuild:less": "node ./compile.less.js",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --format=stylish",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -40,6 +47,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "npm-run-all": "^4.1.5",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

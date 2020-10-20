@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import DataSource from 'devextreme/data/data_source';
 import 'devextreme/data/odata/store';
-import {Service} from "../service/service";
+import { Service } from '../../service/service';
 
 @Component({
 	selector: 'extracted-data-grid',
-	templateUrl: './extracted-data-grid.component.html',
-	styleUrls: ['./extracted-data-grid.component.less'],
+	templateUrl: './extractedDataGrid.component.html',
+	styleUrls: ['./extractedDataGrid.component.less'],
 	providers: [Service]
 })
 export class ExtractedDataGridComponent implements OnInit {
 	columns = [];
 	dataSource: DataSource;
 	constructor(services: Service) {
-		services.getData().subscribe(data=>{
+		services.getData().subscribe(data => {
 			this.dataSource = new DataSource({
 				store: data
 			});
@@ -22,22 +22,22 @@ export class ExtractedDataGridComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.columns = [{
-			dataField: "title",
-			caption: "Title"
+			dataField: 'title',
+			caption: 'Title'
 		}, {
-			dataField: "dateOfPublish",
-			caption: "Date of Publish",
-			dataType: "date"
+			dataField: 'dateOfPublish',
+			caption: 'Date of Publish',
+			dataType: 'date'
 		}, {
-			dataField: "basedOn",
-			caption: "Based on"
+			dataField: 'basedOn',
+			caption: 'Based on'
 		}, {
-			dataField: "type",
-			caption: "Type"
+			dataField: 'type',
+			caption: 'Type'
 		}, {
-			dataField: "url",
-			caption: "URL",
-			cellTemplate: "URLLink"
+			dataField: 'url',
+			caption: 'URL',
+			cellTemplate: 'URLLink'
 		}];
 	}
 
